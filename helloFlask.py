@@ -13,6 +13,13 @@ app = Flask(__name__)
 def main():
 	return render_template('login.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return main()
+
 def do_the_login():
 	connectToFirebase()
 	nodo_raiz = db.reference()
@@ -40,7 +47,6 @@ def do_the_login():
 		return childPrincipal(usuarioLogueado)
 	else:
 		return show_the_login_form()
-
 
 
 def childPrincipal(usuarioLogueado):
