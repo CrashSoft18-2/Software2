@@ -49,7 +49,7 @@ def do_the_login():
 		return show_the_login_form()
 
 @app.route("/principal")
-def childPrincipal():
+def childPrincipal(usuarioLogueado):
     return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
