@@ -63,4 +63,5 @@ def init():
 	firebase_admin.initialize_app() 
 
 if __name__ == "__main__":
+	app.run()
 	main()
