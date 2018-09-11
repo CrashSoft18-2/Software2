@@ -13,13 +13,6 @@ app = Flask(__name__)
 def main():
 	return render_template('login.html')
 
-@app.route("/login2", methods=['GET','POST'])
-def login2():
-	if request.method == 'POST':
-		return do_the_login()
-	else:
-		return show_the_login_form()
-
 def do_the_login():
 	connectToFirebase()
 	nodo_raiz = db.reference()
@@ -60,9 +53,10 @@ def connectToFirebase():
 	firebase_admin.initialize_app(cred, {'databaseURL' : 'https://crashsoft-e0a3e.firebaseio.com/'}) 
 
 def init():
+	port = int(os.environ.get('PORT', 5000))
+	app.run(host='0.0.0.0', port=port)
 	firebase_admin.initialize_app() 
 
 if __name__ == "__main__":
-	port = int(os.environ.get('PORT', 5000))
-	app.run(host='0.0.0.0', port=port)
+	init()
 	main()
