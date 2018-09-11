@@ -16,7 +16,7 @@ def main():
 
 @app.route("/principal")
 def principal():
-	return login()
+	return show_the_login_form()
 
 @app.route("/login", methods=['GET','POST'])
 def login():
