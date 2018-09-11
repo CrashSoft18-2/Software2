@@ -14,6 +14,7 @@ def main():
 	connectToFirebase()
 	return principal()
 
+@app.route("/principal")
 def principal():
 	return show_the_login_form()
 
@@ -51,6 +52,8 @@ def do_the_login():
 	else:
 		return show_the_login_form()
 	
+
+@app.route('/show_the_login_form/')
 def show_the_login_form(name=None): #paremeters
 	return render_template('login.html', name=name)
 
