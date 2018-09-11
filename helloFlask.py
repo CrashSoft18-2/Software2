@@ -12,7 +12,6 @@ app = Flask(__name__)
 @app.route("/")
 def main():
 	app.run()
-	connectToFirebase()
 	return principal()
 
 def principal():
@@ -26,6 +25,7 @@ def login():
 		return show_the_login_form()
 
 def do_the_login():
+	connectToFirebase()
 	nodo_raiz = db.reference()
 	lista_alumnos = nodo_raiz.child('Usuarios/Alumnos').get()
 	lista_docentes = nodo_raiz.child('Usuarios/Profesores').get()
