@@ -55,13 +55,13 @@ def childPrincipal(usuarioLogueado):
 def childAsesorias(usuarioLogueado):
 	return render_template('childAsesorias.html', name=usuarioLogueado.get("nombre"))
 @app.route("/citas")
-def childAsesorias(usuarioLogueado):
+def childCitas(usuarioLogueado):
 	return render_template('childCitas.html', name=usuarioLogueado.get("nombre"))
-@app.route("/principal")
-def childAsesorias(usuarioLogueado):
+@app.route("/historial")
+def childHistorial(usuarioLogueado):
 	return render_template('childHistorial.html', name=usuarioLogueado.get("nombre"))
-@app.route("/principal")
-def childAsesorias(usuarioLogueado):
+@app.route("/seminarios")
+def childSeminarios(usuarioLogueado):
 	return render_template('childSeminarios.html', name=usuarioLogueado.get("nombre"))
 
 def connectToFirebase():
