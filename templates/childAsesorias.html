@@ -9,6 +9,22 @@
 {% block content %}
   <h1>Index</h1>
   <p class="important">
-    Estas son las asesorias, {% if name %} Hello {{ name }}! {% else %} Hello, World!
-{% endif %}
+    Estas son las asesorias, {% if name %} Hello {{ name }}! {% else %} Hello, World! {% endif %}
+<table style="width:100%">
+  <tr>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Apellido</th> 
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td> 
+    <td>94</td>
+  </tr>
+</table>
 {% endblock %}
