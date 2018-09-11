@@ -1,0 +1,71 @@
+{
+  "Usuarios" : {
+    "Alumnos" : [ {
+      "foto" : "https://pbs.twimg.com/profile_images/907060975676936199/HWPk3JZa_400x400.jpg",
+      "nombre" : "Diana Ayala",
+      "password" : 1234,
+      "user" : 20152736
+    }, {
+      "foto" : "https://scontent.flim1-2.fna.fbcdn.net/v/t1.0-9/18951004_10209676590259243_895528510093323591_n.jpg?_nc_cat=0&oh=e0e77ac5b15d7ca551be36a817b268a4&oe=5BEC3B6B",
+      "nombre" : "Ashly Guerrero",
+      "password" : 1234,
+      "user" : 20150626
+    }, {
+      "nombre" : "Marcelo Coronel",
+      "password" : 1234,
+      "user" : 20130123
+    }, {
+      "nombre" : "Eduardo Rojas",
+      "password" : 1234,
+      "user" : 20151186
+    }, {
+      "nombre" : "Alvaro Carbonel",
+      "password" : 1234,
+      "user" : 20151178
+    }, {
+      "nombre" : "Jose Vasquez",
+      "password" : 1234,
+      "user" : 20157845
+    }, {
+      "nombre" : "Edwin Roque",
+      "password" : 1234,
+      "user" : 20157799
+    }, {
+      "nombre" : "Miguel Salazar",
+      "password" : 1234,
+      "user" : 20157722
+    }, {
+      "nombre" : "Angela Calderon",
+      "password" : 20167744
+    } ],
+    "Profesores" : [ {
+      "nombre" : "Juan Higinio",
+      "password" : 1234,
+      "user" : "jhiginio"
+    }, {
+      "nombre" : "Pedro Sifuentes",
+      "password" : 1234,
+      "user" : "psifuentes"
+    }, {
+      "nombre" : "Mark Zurita",
+      "password" : 1234,
+      "user" : "mzurita"
+    }, {
+      "nombre" : "Bruno Cardenas",
+      "password" : 1234,
+      "user" : "bcardenas"
+    }, {
+      "nombre" : "Julia Gomez",
+      "password" : 1234,
+      "user" : "jgomez"
+    }, {
+      "nombre" : "John Lewis",
+      "password" : 1234,
+      "user" : "jlewis"
+    }, {
+      "nombre" : "Javier Alania",
+      "password" : 1234,
+      "user" : "jalania"
+    } ]
+  }
+}
