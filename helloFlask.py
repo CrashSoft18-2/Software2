@@ -17,7 +17,7 @@ def principal():
 	return login()
 
 @app.route("/login2", methods=['GET','POST'])
-def login():
+def login2():
 	if request.method == 'POST':
 		return do_the_login()
 	else:
