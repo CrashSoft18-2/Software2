@@ -11,10 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-	return principal()
-
-def principal():
-	return login()
+	return return render_template('login.html')
 
 @app.route("/login2", methods=['GET','POST'])
 def login2():
@@ -51,9 +48,7 @@ def do_the_login():
 	else:
 		return show_the_login_form()
 
-@app.route("/login/")	
-def login():
-	return render_template('login.html')
+
 
 def childPrincipal(usuarioLogueado):
     return render_template('childPrincipal.html', name=usuarioLogueado.get("nombre"))
