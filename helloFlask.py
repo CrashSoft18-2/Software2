@@ -48,9 +48,21 @@ def do_the_login():
 	else:
 		return show_the_login_form()
 
-
+@app.route("/principal")
 def childPrincipal(usuarioLogueado):
     return render_template('childPrincipal.html', name=usuarioLogueado.get("nombre"))
+@app.route("/asesorias")
+def childAsesorias(usuarioLogueado):
+	return render_template('childAsesorias.html', name=usuarioLogueado.get("nombre"))
+@app.route("/citas")
+def childAsesorias(usuarioLogueado):
+	return render_template('childCitas.html', name=usuarioLogueado.get("nombre"))
+@app.route("/principal")
+def childAsesorias(usuarioLogueado):
+	return render_template('childHistorial.html', name=usuarioLogueado.get("nombre"))
+@app.route("/principal")
+def childAsesorias(usuarioLogueado):
+	return render_template('childSeminarios.html', name=usuarioLogueado.get("nombre"))
 
 def connectToFirebase():
 	SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
