@@ -1,1 +1,1 @@
-web: python helloFlask.py
+web: python helloFlask.py run server 0.0.0.0:$PORT
