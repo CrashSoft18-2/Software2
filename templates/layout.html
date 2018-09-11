@@ -1,12 +1,19 @@
 <!doctype html>
 <html>
   <head>
-    {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleNavigation.css') }}">
     <title>{% block title %}{% endblock %} - My Webpage</title>
-    {% endblock %}
   </head>
   <body>
+<div>
+  <a href="www.ulima.edu.pe">Universidad de Lima</a>
+</div>
+<ul>
+  <li><a href="default.asp">Home</a></li>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="contact.asp">Contact</a></li>
+  <li><a href="about.asp">About</a></li>
+</ul>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
       {% block footer %}
