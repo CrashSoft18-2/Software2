@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
+	app.run()
 	connectToFirebase()
 	return principal()
 
