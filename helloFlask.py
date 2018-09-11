@@ -14,9 +14,9 @@ def main():
 	return principal()
 
 def principal():
-	return show_the_login_form()
+	return login()
 
-@app.route("/login", methods=['GET','POST'])
+@app.route("/login2", methods=['GET','POST'])
 def login():
 	if request.method == 'POST':
 		return do_the_login()
@@ -50,9 +50,10 @@ def do_the_login():
 		return childPrincipal(usuarioLogueado)
 	else:
 		return show_the_login_form()
-	
-def show_the_login_form(name=None): #paremeters
-	return render_template('login.html', name=name)
+
+@app.route("/login/")	
+def login():
+	return render_template('login.html')
 
 def childPrincipal(usuarioLogueado):
     return render_template('childPrincipal.html', name=usuarioLogueado.get("nombre"))
