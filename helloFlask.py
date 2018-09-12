@@ -47,11 +47,12 @@ def do_the_login():
 	if auth == True:
 		return childPrincipal(usuarioLogueado)
 	else:
-		return login()
+		return main()
 
 @app.route("/principal")
 def childPrincipal(usuarioLogueado):
-    return render_template('childPrincipal.html')
+        connectToPosgre();
+        return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
 	return render_template('childAsesorias.html')
@@ -72,10 +73,10 @@ def connectToFirebase():
 		cred = credentials.Certificate(json_URL)
 		firebase_admin.initialize_app(cred, {'databaseURL' : 'https://crashsoft-e0a3e.firebaseio.com/'}) 
 
-def connectPostgre():
-        #DATABASE_URL = os.environ['DATABASE_URL']
-        #onn = psycopg2.connect(DATABASE_URL, sslmode='require')
-        pass
+def connectToPostgre():
+        DATABASE_URL = os.environ['DATABASE_URL']
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
 def init():
 	port = int(os.environ.get('PORT', 5000))
 	app.run(host='0.0.0.0', port=port)
