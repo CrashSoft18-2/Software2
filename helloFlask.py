@@ -7,8 +7,11 @@ from firebase_admin import db
 import firebase_admin
 import os
 import psycopg2
+from flask import session
+from flask import flash
 
 app = Flask(__name__)
+app.secret_key = b'1234'
 
 @app.route("/")
 def main():
@@ -45,6 +48,8 @@ def do_the_login():
                         auth = True
                         break
 	if auth == True:
+                session['username'] = request.form['uname']
+                flash('Te logueaste papu')
 		return childPrincipal(usuarioLogueado)
 	else:
 		return main()
