@@ -6,6 +6,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 import firebase_admin
 import os
+import psycopg2
 
 app = Flask(__name__)
 
@@ -71,6 +72,10 @@ def connectToFirebase():
 		cred = credentials.Certificate(json_URL)
 		firebase_admin.initialize_app(cred, {'databaseURL' : 'https://crashsoft-e0a3e.firebaseio.com/'}) 
 
+def connectPostgre():
+        #DATABASE_URL = os.environ['DATABASE_URL']
+        #onn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        pass
 def init():
 	port = int(os.environ.get('PORT', 5000))
 	app.run(host='0.0.0.0', port=port)
