@@ -51,7 +51,7 @@ def do_the_login():
 
 @app.route("/principal")
 def childPrincipal(usuarioLogueado):
-        connectToPosgre();
+        connectToPostgre()
         return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
