@@ -56,14 +56,17 @@ def do_the_login():
 
 @app.route("/principal")
 def childPrincipal(usuarioLogueado):
-	conn = connectToPostgre()
-	cur = conn.cursor()
-	cur.execute("select * from asesorias;")
-	row = cur.fetchone()
-	print(row)
 	return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
+	conn = connectToPostgre()
+	cur = conn.cursor()
+	cur.execute("select * from asesorias;")
+	rows = cur.fetchall()
+	session['tablaAsesorias'] = rows
+	print(rows)
+	cur.close()
+	conn.close()
 	return render_template('childAsesorias.html')
 @app.route("/citas")
 def childCitas():
