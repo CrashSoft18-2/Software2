@@ -13,15 +13,13 @@
     <th>Profesor</th>
     <th>Horario</th> 
   </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>
+{% for asesoria in asesorias %}
+	<tr>
+    		<td>{{ asesoria.hora }}</td>
+   		<td>{{ asesoria.lugar }}</td> 
+    		<td>{{ asesoria.dia }}</td>
+  	</tr>
+{% endfor %}
+  
 </table>
 {% endblock %}
