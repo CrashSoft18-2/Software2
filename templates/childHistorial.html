@@ -1,14 +1,24 @@
 {% extends "layout.html" %}
 {% block title %}Index{% endblock %}
 {% block head %}
-  {{ super() }}
-  <style type="text/css">
-    .important { color: #336699; }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styleTables.css') }}">
 {% endblock %}
 {% block content %}
   <h1>Index</h1>
   <p class="important">
-    Este es el historial, {% if name %} Hello {{ name }}! {% else %} Hello, World!
-{% endif %}
+    Estas son las asesorias, {% if name %} Hello {{ name }}! {% else %} Hello, World! {% endif %}
+<table style="width:100%">
+  <tr>
+    <th>Historia</th>
+    <th>Fecha</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td> 
+  </tr>
+</table>
 {% endblock %}
