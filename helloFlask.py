@@ -56,7 +56,11 @@ def do_the_login():
 
 @app.route("/principal")
 def childPrincipal(usuarioLogueado):
-	connectToPostgre()
+	conn = connectToPostgre()
+	cur = conn.cursor()
+	cur.execute("select * from asesorias;")
+	row = cur.fetchone()
+	print(row)
 	return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
@@ -81,6 +85,7 @@ def connectToFirebase():
 def connectToPostgre():
 	DATABASE_URL = os.environ['DATABASE_URL']
 	conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+	return conn
 
 def init():
 	port = int(os.environ.get('PORT', 5000))
