@@ -47,7 +47,7 @@ def do_the_login():
 	if auth == True:
 		return childPrincipal(usuarioLogueado)
 	else:
-		return show_the_login_form()
+		return login()
 
 @app.route("/principal")
 def childPrincipal(usuarioLogueado):
