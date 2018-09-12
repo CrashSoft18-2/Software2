@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleNavigation.css') }}">
@@ -16,7 +16,19 @@
     <li><a href="{{ url_for('childCitas') }}">Mis citas</a></li>
     <li><a href="{{ url_for('childSeminarios') }}">Seminarios</a></li>
   </ul>
-    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="content">
+	{% block content %}
+	{% with messages = get_flashed_messages() %}
+  		{% if messages %}
+    			<ul class=flashes>
+    		{% for message in messages %}
+	      		<li>{{ message }}</li>
+	    	{% endfor %}
+	    		</ul>
+	  	{% endif %}
+	{% endwith %}
+	{% endblock %}
+    </div>
     <div id="footer">
       {% block footer %}
       &copy; Copyright 2010 by <a href="http://domain.invalid/">you</a>.
