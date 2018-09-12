@@ -9,7 +9,7 @@
 {% block content %}
 	{% with messages = get_flashed_messages() %}
   			{% if messages %}
-    				<ul class=flashes>
+    				<ul style="background-color:#F5F5DC;" class=flashes>
     			{% for message in messages %}
 	      			<li>{{ message }}</li>
 	    		{% endfor %}
