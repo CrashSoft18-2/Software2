@@ -33,7 +33,7 @@ def do_the_login():
 	usuario = ""
 	password = ""
 	print (request.form['uname'])
-	print (request.form['psw']) 
+	print (request.form['psw'])
 	print(lista_alumnos)
 	for key, value in lista_alumnos.items():
 		usuario = str(value.get("user"))
