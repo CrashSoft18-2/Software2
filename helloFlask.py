@@ -36,18 +36,11 @@ def do_the_login():
 	print (request.form['psw'])
 	print(lista_alumnos)
 	for x in lista_alumnos:
-		print(x)
-		for key, value in x.items():
-			print("Key: {}".format(key))
-			print("Value: {}".format(value))
-	for key, value in lista_alumnos.items():
-		usuario = str(value.get("user"))
-		password = str(value.get("password"))
+		usuario = str(x.get("user"))
+		password = str(x.get("password"))
 		postUsuario = request.form['uname'] + ""
 		postPassword = request.form['psw'] + ""
-		print (usuario)
-		print (password)
-		print ("aca")
+		print("Try match")
 		print (usuario == postUsuario and password == postPassword)
 		if (usuario == postUsuario and password == postPassword):
 			usuarioLogueado=value
