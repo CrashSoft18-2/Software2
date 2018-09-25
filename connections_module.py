@@ -13,7 +13,7 @@ class Connection:
 			cred = credentials.Certificate(json_URL)
 			firebase_admin.initialize_app(cred, {'databaseURL' : 'https://crashsoft-e0a3e.firebaseio.com/'})
 
-def connectToPostgre():
-	DATABASE_URL = os.environ['DATABASE_URL']
-	conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-	return conn
+	def connectToPostgre(self):
+		DATABASE_URL = os.environ['DATABASE_URL']
+		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+		return conn
