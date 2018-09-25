@@ -35,15 +35,15 @@ def do_the_login():
 	print (request.form['uname'])
 	print (request.form['psw'])
 	print(lista_alumnos)
-	for x in lista_alumnos:
-		usuario = str(x.get("user"))
-		password = str(x.get("password"))
+	for alumno in lista_alumnos:
+		usuario = str(alumno.get("user"))
+		password = str(alumno.get("password"))
 		postUsuario = request.form['uname'] + ""
 		postPassword = request.form['psw'] + ""
 		print("Try match")
 		print (usuario == postUsuario and password == postPassword)
 		if (usuario == postUsuario and password == postPassword):
-			usuarioLogueado=value
+			usuarioLogueado=alumno
 			auth = True
 			break
 	if auth == True:
