@@ -6,20 +6,20 @@
 {% block content %}
   <h1>Index</h1>
   <p class="important">
-    Estas son las asesorias, {% if session['usuario_logueado'].get('username') %} Hello {{ session['usuario_logueado'].get('username') }}! {% else %} Hello, World! {% endif %}
+    Estas son las asesorias, {% if session['usuario_logueado'].get('nombre') %} Hello {{ session['usuario_logueado'].get('username') }}! {% else %} Hello, World! {% endif %}
 <table style="width:100%">
   <tr>
     <th>Asesoría ID</th>
     <th>Hora</th>
-	<th>Lugar<\th>
+	<th>Lugar</th>
     <th>Día</th> 
   </tr>
 {% for asesoria in session['tablaAsesorias'] %}
 	<tr>
-    		<td>{{ asesoria[0] }}</td>
-   		<td>{{ asesoria[1] }}</td> 
-    		<td>{{ asesoria[2] }}</td>
-    		<td>{{ asesoria[3] }}</td>
+    		<td>{{ unicode(asesoria[0], errors='ignore')}}</td>
+   		<td>{{ unicode(asesoria[1], errors='ignore')}}</td> 
+    		<td>{{ unicode(asesoria[2], errors='ignore')}}</td>
+    		<td>{{ unicode(asesoria[3], errors='ignore')}}</td>
   	</tr>
 {% endfor %}
   
