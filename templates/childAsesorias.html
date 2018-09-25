@@ -16,10 +16,10 @@
   </tr>
 {% for asesoria in session['tablaAsesorias'] %}
 	<tr>
-    		<td>{{ unicode(asesoria[0], errors='ignore')}}</td>
-   		<td>{{ unicode(asesoria[1], errors='ignore')}}</td> 
-    		<td>{{ unicode(asesoria[2], errors='ignore')}}</td>
-    		<td>{{ unicode(asesoria[3], errors='ignore')}}</td>
+    		<td>{{asesoria[0]}}</td>
+   		<td>{{asesoria[1]}}</td> 
+    		<td>{{asesoria[2]}}</td>
+    		<td>{{asesoria[3]}}</td>
   	</tr>
 {% endfor %}
   
