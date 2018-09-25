@@ -5,7 +5,7 @@ class QClass:
 		pass
 
 	def query_file(self, ruta):
-		command = open_sql_file(ruta)
+		command = self.open_sql_file(ruta)
 		conn = Connection().connectToPostgre()
 		cur = conn.cursor()
 		rows = None
