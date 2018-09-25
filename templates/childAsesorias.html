@@ -6,14 +6,14 @@
 {% block content %}
   <h1>Index</h1>
   <p class="important">
-    Estas son las asesorias, {% if usuario_logueado.get('username') %} Hello {{ usuario_logueado.get('username') }}! {% else %} Hello, World! {% endif %}
+    Estas son las asesorias, {% if session['usuario_logueado'].get('username') %} Hello {{ session['usuario_logueado'].get('username') }}! {% else %} Hello, World! {% endif %}
 <table style="width:100%">
   <tr>
     <th>Aseosoria</th>
     <th>Profesor</th>
     <th>Horario</th> 
   </tr>
-{% for asesoria in tablaAsesorias %}
+{% for asesoria in session['tablaAsesorias'] %}
 	<tr>
     		<td>{{ asesoria.hora }}</td>
    		<td>{{ asesoria.lugar }}</td> 
