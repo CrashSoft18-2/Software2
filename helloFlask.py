@@ -30,7 +30,7 @@ def login_system():
 	if auth == True:
 		#session['username'] = request.form['uname']
 		flash('Te logueaste papu')
-		return childPrincipal(auth)
+		return childPrincipal(login.usuario_logueado)
 	else:
 		return main()
 

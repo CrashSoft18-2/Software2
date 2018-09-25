@@ -3,7 +3,7 @@ from firebase_admin import db
 from flask import request
 class Login:
 	def __init__(self):
-		pass
+		self.usuario_logueado = None
 
 	def do_the_login(self):
 		con = Connection()
@@ -25,7 +25,7 @@ class Login:
 			print("Try match")
 			print (usuario == postUsuario and password == postPassword)
 			if (usuario == postUsuario and password == postPassword):
-				usuarioLogueado=alumno
+				self.usuario_logueado=alumno
 				auth = True
 				break
 		return auth
