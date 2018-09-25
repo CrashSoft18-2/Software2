@@ -1,5 +1,6 @@
 from firebase_admin import credentials
 import os
+import firebase_admin
 class Connection:
 	def __init__(self):
 		pass
