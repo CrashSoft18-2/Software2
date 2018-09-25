@@ -1,4 +1,4 @@
-from connections_module import connection
+from connections_module import Connection
 from firebase_admin import db
 from flask import request
 class Login:
@@ -6,7 +6,8 @@ class Login:
 		pass
 
 	def do_the_login(self):
-		connectToFirebase()
+		con = Connection()
+		con.connectToFirebase()
 		nodo_raiz = db.reference()
 		lista_alumnos = nodo_raiz.child('Usuarios/Alumnos').get()
 		lista_docentes = nodo_raiz.child('Usuarios/Profesores').get()
