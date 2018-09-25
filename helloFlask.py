@@ -28,8 +28,9 @@ def login_system():
 	login = Login()
 	auth = login.do_the_login()
 	if auth == True:
-		#session['username'] = request.form['uname']
-		flash('Te logueaste papu')
+		session['username'] = request.form['uname']
+		session['usuario_logueado'] = login.usuario_logueado
+		flash('Te logueaste papu {}'.format(session['username']))
 		return childPrincipal(login.usuario_logueado)
 	else:
 		return main()
@@ -57,11 +58,6 @@ def childHistorial():
 @app.route("/seminarios")
 def childSeminarios():
 	return render_template('childSeminarios.html')
-
-def connectToPostgre():
-	DATABASE_URL = os.environ['DATABASE_URL']
-	conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-	return conn
 
 def init():
 	port = int(os.environ.get('PORT', 5000))
