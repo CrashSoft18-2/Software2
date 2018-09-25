@@ -9,10 +9,10 @@
     Estas son las asesorias, {% if session['usuario_logueado'].get('nombre') %} Hello {{ session['usuario_logueado'].get('username') }}! {% else %} Hello, World! {% endif %}
 <table style="width:100%">
   <tr>
-    <th>Asesoría ID</th>
+    <th>Asesoria ID</th>
     <th>Hora</th>
-	<th>Lugar</th>
-    <th>Día</th> 
+    <th>Lugar</th>
+    <th>Dia</th> 
   </tr>
 {% for asesoria in session['tablaAsesorias'] %}
 	<tr>
