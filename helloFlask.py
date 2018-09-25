@@ -10,6 +10,7 @@ import psycopg2
 from flask import session
 from flask import flash
 from login_module import Login
+from connections_module import Connection
 app = Flask(__name__)
 app.secret_key = b'1234'
 
@@ -40,7 +41,7 @@ def childPrincipal(usuarioLogueado):
 	return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
-	conn = connectToPostgre()
+	conn = Connection().connectToPostgre()
 	cur = conn.cursor()
 	cur.execute("select * from asesorias;")
 	rows = cur.fetchall()
