@@ -37,6 +37,9 @@ def do_the_login():
 	print(lista_alumnos)
 	for x in lista_alumnos:
 		print(x)
+		for key, value in x.items():
+			print("Key: {}".format(key))
+			print("Value: {}".format(value))
 	for key, value in lista_alumnos.items():
 		usuario = str(value.get("user"))
 		password = str(value.get("password"))
