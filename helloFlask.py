@@ -11,6 +11,7 @@ from flask import session
 from flask import flash
 from login_module import Login
 from connections_module import Connection
+from query_module import QClass
 app = Flask(__name__)
 app.secret_key = b'1234'
 
@@ -41,14 +42,9 @@ def childPrincipal(usuarioLogueado):
 	return render_template('childPrincipal.html')
 @app.route("/asesorias")
 def childAsesorias():
-	conn = Connection().connectToPostgre()
-	cur = conn.cursor()
-	cur.execute("select * from asesorias;")
-	rows = cur.fetchall()
-	session['tablaAsesorias'] = rows
-	print(rows)
-	cur.close()
-	conn.close()
+	motor_queries = QClass()
+	tabla = motor_queries.query_file("queries/queryAsesorias.sql")
+	session['tablaAsesorias'] = tabla
 	return render_template('childAsesorias.html')
 @app.route("/citas")
 def childCitas():
