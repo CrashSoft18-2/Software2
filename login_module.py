@@ -1,7 +1,7 @@
 from connections_module import connection
 from firebase_admin import db
 from flask import request
-class login:
+class Login:
 	def __init__(self):
 		pass
 

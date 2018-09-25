@@ -9,7 +9,7 @@ import os
 import psycopg2
 from flask import session
 from flask import flash
-from login_module import login
+from login_module import Login
 app = Flask(__name__)
 app.secret_key = b'1234'
 
@@ -25,7 +25,8 @@ def login():
         return main()
 
 def login_system():
-	auth = do_the_login()
+	login = Login()
+	auth = login.do_the_login()
 	if auth == True:
 		#session['username'] = request.form['uname']
 		flash('Te logueaste papu')
