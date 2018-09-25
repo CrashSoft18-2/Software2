@@ -9,7 +9,7 @@ import os
 import psycopg2
 from flask import session
 from flask import flash
-
+from login_module import login
 app = Flask(__name__)
 app.secret_key = b'1234'
 
@@ -20,36 +20,16 @@ def main():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        return do_the_login()
+        return login_system()
     else:
         return main()
 
-def do_the_login():
-	connectToFirebase()
-	nodo_raiz = db.reference()
-	lista_alumnos = nodo_raiz.child('Usuarios/Alumnos').get()
-	lista_docentes = nodo_raiz.child('Usuarios/Profesores').get()
-	auth = False
-	usuario = ""
-	password = ""
-	print (request.form['uname'])
-	print (request.form['psw'])
-	print(lista_alumnos)
-	for alumno in lista_alumnos:
-		usuario = str(alumno.get("user"))
-		password = str(alumno.get("password"))
-		postUsuario = request.form['uname'] + ""
-		postPassword = request.form['psw'] + ""
-		print("Try match")
-		print (usuario == postUsuario and password == postPassword)
-		if (usuario == postUsuario and password == postPassword):
-			usuarioLogueado=alumno
-			auth = True
-			break
+def login_system():
+	auth = do_the_login()
 	if auth == True:
-		session['username'] = request.form['uname']
+		#session['username'] = request.form['uname']
 		flash('Te logueaste papu')
-		return childPrincipal(usuarioLogueado)
+		return childPrincipal(auth)
 	else:
 		return main()
 
@@ -76,13 +56,6 @@ def childHistorial():
 @app.route("/seminarios")
 def childSeminarios():
 	return render_template('childSeminarios.html')
-
-def connectToFirebase():
-	SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-	json_URL = SITE_ROOT + '/static/json/crashsoft-e0a3e-firebase-adminsdk-czkyi-1a12b89004.json'
-	if (not len(firebase_admin._apps)):
-		cred = credentials.Certificate(json_URL)
-		firebase_admin.initialize_app(cred, {'databaseURL' : 'https://crashsoft-e0a3e.firebaseio.com/'}) 
 
 def connectToPostgre():
 	DATABASE_URL = os.environ['DATABASE_URL']
