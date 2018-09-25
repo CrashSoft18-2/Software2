@@ -48,6 +48,9 @@ def childAsesorias():
 	return render_template('childAsesorias.html')
 @app.route("/citas")
 def childCitas():
+	motor_queries = QClass()
+	tabla = motor_queries.query_file("queries/queryCitas.sql")
+	session['tablaCitas'] = tabla
 	return render_template('childCitas.html')
 @app.route("/historial")
 def childHistorial():

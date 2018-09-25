@@ -4,24 +4,29 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styleTables.css') }}">
 {% endblock %}
 {% block content %}
-  <h1>Index</h1>
+  <h1>Citas</h1>
   <p class="important">
-    Estas son las asesorias, {% if name %} Hello {{ name }}! {% else %} Hello, World! {% endif %}
+    Estas son las citas registradas, {% if session['usuario_logueado'].get('nombre') %} Hello {{ session['usuario_logueado'].get('nombre') }}! {% else %} Hello, World! {% endif %}
 <table style="width:100%">
   <tr>
-    <th>Cita</th>
     <th>Profesor</th>
-    <th>Horario</th> 
+    <th>Carrera</th>
+    <th>Curso</th>
+    <th>Fecha</th>
+    <th>Hora</th>
+    <th>Lugar</th>
+    <th>Consulta</th>
   </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>
+{% for cita in session['tablaCitas'] %}
+	<tr>
+    		<td>{{asesoria[0]}} {{asesoria[1]}}</td>
+   		<td>{{asesoria[2]}}</td> 
+    		<td>{{asesoria[3]}}</td>
+    		<td>{{asesoria[4]}}</td>
+    		<td>{{asesoria[5]}}</td>
+    		<td>{{asesoria[6]}}</td>
+    		<td>{{asesoria[7]}}</td>
+  	</tr>
+{% endfor %}
 </table>
 {% endblock %}
