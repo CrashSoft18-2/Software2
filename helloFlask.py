@@ -57,6 +57,9 @@ def childHistorial():
 	return render_template('childHistorial.html')
 @app.route("/seminarios")
 def childSeminarios():
+	motor_queries = QClass()
+	tabla = motor_queries.query_file("queries/querySeminarios.sql")
+	session['tablaSeminarios'] = tabla
 	return render_template('childSeminarios.html')
 
 def init():
