@@ -4,9 +4,9 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styleTables.css') }}">
 {% endblock %}
 {% block content %}
-  <h1>Index</h1>
+  <h1>Asesorias</h1>
   <p class="important">
-    Estas son las asesorias, {% if session['usuario_logueado'].get('nombre') %} Hello {{ session['usuario_logueado'].get('username') }}! {% else %} Hello, World! {% endif %}
+    Estas son las asesorias, {% if session['usuario_logueado'].get('nombre') %} Hello {{ session['usuario_logueado'].get('nombre') }}! {% else %} Hello, World! {% endif %}
 <table style="width:100%">
   <tr>
     <th>Asesoria ID</th>
