@@ -14,7 +14,7 @@ class QClass:
 			rows = cur.fetchall()
 			cur.close()
 			conn.close()
-		except OperationalError, msg:
+		except OperationalError:
 			print ("No se ejecuto la consulta.")
 		return rows
 
